@@ -88,6 +88,77 @@ document.addEventListener('DOMContentLoaded', function() {
         duration: 0.8
     });
     
+    // Trailer section
+    gsap.to('.video-container', {
+        scrollTrigger: {
+            trigger: '.trailer',
+            start: 'top 70%',
+            toggleActions: 'play none none none'
+        },
+        opacity: 1,
+        y: 0,
+        duration: 1
+    });
+    
+    gsap.to('.trailer-description', {
+        scrollTrigger: {
+            trigger: '.trailer',
+            start: 'top 60%',
+            toggleActions: 'play none none none'
+        },
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.3
+    });
+    
+    // Fan comments section
+    gsap.to('.comment-item', {
+        scrollTrigger: {
+            trigger: '.fan-comments',
+            start: 'top 60%',
+            toggleActions: 'play none none none'
+        },
+        opacity: 1,
+        scale: 1,
+        stagger: 0.2,
+        duration: 0.8,
+        ease: "back.out(1.7)"
+    });
+    
+    gsap.to('.movie-title', {
+        scrollTrigger: {
+            trigger: '.fan-comments',
+            start: 'center 70%',
+            toggleActions: 'play none none none'
+        },
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 1
+    });
+    
+    // Add hover effect to comment diamonds
+    const commentDiamonds = document.querySelectorAll('.comment-diamond');
+    
+    commentDiamonds.forEach(diamond => {
+        diamond.addEventListener('mouseenter', () => {
+            gsap.to(diamond, {
+                boxShadow: '0 0 25px rgba(255, 215, 0, 0.8)',
+                border: '3px solid rgba(255, 215, 0, 1)',
+                duration: 0.3
+            });
+        });
+        
+        diamond.addEventListener('mouseleave', () => {
+            gsap.to(diamond, {
+                boxShadow: '0 0 15px rgba(255, 215, 0, 0.5)',
+                border: '3px solid var(--accent)',
+                duration: 0.3
+            });
+        });
+    });
+    
     // Coming soon section
     gsap.to('.release-info', {
         scrollTrigger: {

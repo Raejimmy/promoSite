@@ -72,6 +72,12 @@ section {
     margin-bottom: 2rem;
     position: relative;
     display: inline-block;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: linear-gradient(to bottom, #ffd700 0%, #b8860b 50%, #8b4513 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 .section-title::after {
@@ -81,7 +87,8 @@ section {
     left: 0;
     width: 100px;
     height: 3px;
-    background-color: var(--primary);
+    background: linear-gradient(to right, var(--primary) 0%, var(--accent) 100%);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 /* Cursor Follower */
@@ -100,7 +107,7 @@ section {
 
 /* Hero Section */
 .hero {
-    background-image: url('4b983d88-03d1-403f-91f2-a3c4ea178b73.png');
+    background-image: url('ChatGPT Image Apr 30, 2025, 05_45_07 PM.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -133,17 +140,39 @@ section {
 .title {
     font-size: 5rem;
     font-weight: 900;
-    letter-spacing: 5px;
+    letter-spacing: 8px;
     margin-bottom: 1.5rem;
-    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+    text-transform: uppercase;
+    background: linear-gradient(to bottom, #ffd700 0%, #b8860b 50%, #8b4513 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.7), 0 0 30px rgba(255, 165, 0, 0.5);
+    position: relative;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 1.5s ease forwards 0.5s;
 }
 
+.title::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background: linear-gradient(to bottom, #ffd700 0%, #b8860b 50%, #8b4513 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: blur(10px);
+    opacity: 0.7;
+}
+
 .title span {
     color: var(--primary);
     display: inline-block;
+    background: linear-gradient(to bottom, #ff6b6b 0%, #e63946 50%, #c1121f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(230, 57, 70, 0.7), 0 0 30px rgba(193, 18, 31, 0.5);
 }
 
 .tagline {
@@ -217,7 +246,7 @@ section {
 
 /* Character Section */
 .character {
-    background-image: url('fd4daed6-70a9-4fed-bbc8-2e7d4482e23b.png');
+    background-image: url('4b983d88-03d1-403f-91f2-a3c4ea178b73.png');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -351,6 +380,183 @@ section {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3Cpath fill='%23e63946' d='M309 106c11.4-7 19-19.7 19-34 0-22.1-17.9-40-40-40s-40 17.9-40 40c0 14.4 7.6 27 19 34L209.7 220.6c-9.1 18.2-32.7 23.4-48.6 10.7L72 160c5-6.7 8-15 8-24 0-22.1-17.9-40-40-40S0 113.9 0 136s17.9 40 40 40c.2 0 .5 0 .7 0L86.4 427.4c5.5 30.4 32 52.6 63 52.6H426.6c30.9 0 57.4-22.1 63-52.6L535.3 176c.2 0 .5 0 .7 0 22.1 0 40-17.9 40-40s-17.9-40-40-40s-40 17.9-40 40c0 9 3 17.3 8 24l-89.1 71.3c-15.9 12.7-39.5 7.5-48.6-10.7L309 106z'/%3E%3C/svg%3E");
 }
 
+/* Trailer Section */
+.trailer {
+    background-color: var(--darker-bg);
+    position: relative;
+}
+
+.trailer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(230, 57, 70, 0.3);
+    border: 1px solid rgba(230, 57, 70, 0.5);
+    border-radius: 5px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.video-container video {
+    width: 100%;
+    display: block;
+}
+
+.trailer-description {
+    max-width: 700px;
+    text-align: center;
+    font-size: 1.2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.trailer-description p:last-child {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* Fan Comments Section */
+.fan-comments {
+    background-color: var(--darker-bg);
+    position: relative;
+    background-image: radial-gradient(circle at center, rgba(255, 215, 0, 0.05) 0%, rgba(10, 10, 10, 1) 70%);
+}
+
+.comments-grid {
+    display: grid;
+    grid-template-areas:
+        "top-left . top-right"
+        ". center ."
+        "bottom-left . bottom-right";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    position: relative;
+}
+
+.comment-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: var(--transition);
+}
+
+.comment-item.top-left {
+    grid-area: top-left;
+}
+
+.comment-item.top-right {
+    grid-area: top-right;
+}
+
+.comment-item.center {
+    grid-area: center;
+}
+
+.comment-item.bottom-left {
+    grid-area: bottom-left;
+}
+
+.comment-item.bottom-right {
+    grid-area: bottom-right;
+}
+
+.comment-diamond {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    margin-bottom: 1.5rem;
+    transform: rotate(45deg);
+    overflow: hidden;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.center .comment-diamond {
+    width: 150px;
+    height: 150px;
+}
+
+.comment-image {
+    position: absolute;
+    width: 170%;
+    height: 170%;
+    top: -35%;
+    left: -35%;
+    background-size: cover;
+    background-position: center;
+    transform: rotate(-45deg);
+}
+
+.comment-text {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    background: linear-gradient(to bottom, #ffd700 0%, #b8860b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.movie-title {
+    text-align: center;
+    margin-top: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.movie-title h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    background: linear-gradient(to bottom, #ffd700 0%, #b8860b 50%, #8b4513 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.7), 0 0 30px rgba(255, 165, 0, 0.5);
+    position: relative;
+}
+
+.movie-title h3::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background: linear-gradient(to bottom, #ffd700 0%, #b8860b 50%, #8b4513 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: blur(10px);
+    opacity: 0.7;
+}
+
+.movie-title h3 span {
+    background: linear-gradient(to bottom, #ff6b6b 0%, #e63946 50%, #c1121f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(230, 57, 70, 0.7), 0 0 30px rgba(193, 18, 31, 0.5);
+}
+
 /* Coming Soon Section */
 .coming-soon {
     background-color: var(--darker-bg);
@@ -368,11 +574,29 @@ section {
 
 .date {
     font-family: 'Cinzel', serif;
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 900;
-    color: var(--primary);
     margin-bottom: 1.5rem;
-    letter-spacing: 5px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    background: linear-gradient(to bottom, #ff6b6b 0%, #e63946 50%, #c1121f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(230, 57, 70, 0.7), 0 0 30px rgba(193, 18, 31, 0.5);
+    position: relative;
+}
+
+.date::before {
+    content: 'FALL 2025';
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background: linear-gradient(to bottom, #ff6b6b 0%, #e63946 50%, #c1121f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: blur(10px);
+    opacity: 0.7;
 }
 
 /* Particles Container */
